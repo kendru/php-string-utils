@@ -1,0 +1,19 @@
+{
+    "name": "kendru/string-utils",
+    "description": "Utility class for dealing with strings",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Meredith",
+            "email": "andymeredith@gmail.com"
+        }
+    ],
+    "autoload": {
+		"psr-4": {
+			"Kendru\\": ["src/", "test/"]
+		}
+	},
+    "require-dev": {
+		"phpunit/phpunit": "3.7.*"
+    }
+}
