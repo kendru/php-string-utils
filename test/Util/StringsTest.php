@@ -12,6 +12,14 @@ class StringsTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * @dataProvider titleCaseExamples
+	 */
+	public function testTitleCase($in, $out)
+	{
+		$this->assertEquals($out, Strings::titleCase($in));
+	}
+
+	/**
 	 * @dataProvider underscoreExamples
 	 */
 	public function testUnderscore($in, $out)
@@ -34,6 +42,16 @@ class StringsTest extends \PHPUnit_Framework_TestCase
 			['under_scores', 'underScores'],
 			['hyphenated-words', 'hyphenatedWords'],
 			['with, punctuation!!?', 'withPunctuation']
+		];
+	}
+
+	public function titleCaseExamples()
+	{
+		return [
+			['This is the happy path', 'This Is the Happy Path'],
+			['a title starting with an article', 'A Title Starting with an Article'],
+			['title ending with or', 'Title Ending with Or'],
+			['first in and around or the last', 'First in and around or the Last']
 		];
 	}
 

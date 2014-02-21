@@ -41,6 +41,47 @@ class Strings
 	}
 
 	/**
+	 * Convert a string to title case
+	 *
+	 * Capitalize a string in headline style, using the Chicago Manual of
+	 * Style guidelines:
+	 * - The first and last words of a sentence are always capitalized
+	 * - All words within the sentence except articles, coordinating
+	 *   conjunctions, and prepositions.
+	 *
+	 * @param string $str
+	 * @return string
+	 */
+	public function titleCase($str)
+	{
+		$downcased = [
+			'a' => 1, 'an' => 1, 'the' => 1, // articles
+			'and' => 1, 'but' => 1, 'for' => 1, 'nor' => 1, 'or' => 1, 'so' => 1, 'yet' => 1, // coordinating conjunctions
+			'aboard' => 1, 'about' => 1, 'above' => 1, 'across' => 1, 'after' => 1, 'against' => 1, 'along' => 1, 'amid' => 1, 'among' => 1, 'around' => 1, 'as' => 1, 'at' => 1, 'atop' => 1, 'before' => 1, 'behind' => 1, 'below' => 1, 'beneath' => 1, 'beside' => 1, 'between' => 1, 'beyond' => 1, 'by' => 1, 'despite' => 1, 'down' => 1, 'during' => 1, 'for' => 1, 'from' => 1, 'in' => 1, 'inside' => 1, 'into' => 1, 'like' => 1, 'near' => 1, 'of' => 1, 'off' => 1, 'on' => 1, 'onto' => 1, 'out' => 1, 'outside' => 1, 'over' => 1, 'past' => 1, 'regarding' => 1, 'round' => 1, 'since' => 1, 'than' => 1, 'through' => 1, 'throughout' => 1, 'till' => 1, 'to' => 1, 'toward' => 1, 'under' => 1, 'unlike' => 1, 'until' => 1, 'up' => 1, 'upon' => 1, 'with' => 1, 'within' => 1, 'without' => 1 // prepositions
+
+		];
+
+		$words = preg_split('/\s+/', strtolower($str));
+		if (count($words) < 3) {
+			return ucwords(implode(' ', $words));
+		}
+
+		$first = array_shift($words);
+		array_unshift($words, ucfirst($first));
+
+		$last = array_pop($words);
+		array_push($words, ucfirst($last));
+
+		foreach ($words as &$word) {
+			if (!isset($downcased[strtolower($word)])) {
+				$word = ucfirst($word);
+			}
+		}
+
+		return implode(' ', $words);
+	}
+
+	/**
 	 * Increment a string, assuming a standard alphabetical collation
 	 *
 	 * @param string $str

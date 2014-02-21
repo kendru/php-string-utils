@@ -17,6 +17,17 @@ echo Strings::camelCase('hello, world');
 // Prints "helloWorld"
 ```
 
+#### Title Case
+Convert a string to title case, following the guidelines of _The Chicago Manual
+of Style_:
+- The first and last words of a sentence are always capitalized
+- All words within a sentence except for articles, coordinating conjunctions,
+and prepositions are capitalized
+```php
+echo Strings::titleCase('now is the time for all good men');
+// Prints "Now Is the Time for All Good Men"
+```
+
 #### Increment
 This is a more unusual function that generates the next string in an alphabetical
 sequence.
