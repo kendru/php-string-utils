@@ -4,6 +4,43 @@ namespace Kendru\Util;
 class Strings
 {
 	/**
+	 * Underscore a string
+	 *
+	 * Convert a string to under_score format. Converts words separated
+	 * by spaces or hyphens and camel-cased words.
+	 *
+	 * @param string $str
+	 * @return string
+	 */
+	public static function underscore($str)
+	{
+		$str = preg_replace('/[^-_\w\s]/', '', $str);
+		$str = preg_replace('/([a-z])([A-Z])/', '$1 $2', $str);
+		$str = preg_replace('/[-\s]/', '_', $str);
+		return strtolower($str);
+	}
+
+	/**
+	 * Camel-case a string
+	 *
+	 * Convert a string to camelCase. Converts words separated by spaces,
+	 * underscores, or hyphens.
+	 *
+	 * @param string $str
+	 * @return string
+	 */
+	public static function camelCase($str)
+	{
+		$str = preg_replace('/[^-_\w\s]/', '', $str);
+		$parts = preg_split('/[-_\s]/', $str);
+		$out = strtolower(array_shift($parts));
+		foreach($parts as $word) {
+			$out .= ucfirst(strtolower($word));
+		}
+		return $out;
+	}
+
+	/**
 	 * Increment a string, assuming a standard alphabetical collation
 	 *
 	 * @param string $str
