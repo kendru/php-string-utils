@@ -52,7 +52,7 @@ class Strings
 	 * @param string $str
 	 * @return string
 	 */
-	public function titleCase($str)
+	public static function titleCase($str)
 	{
 		$downcased = [
 			'a' => 1, 'an' => 1, 'the' => 1, // articles
