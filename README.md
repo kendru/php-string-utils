@@ -32,3 +32,11 @@ strings to an underscore-separated string.
 echo Strings::underscore('dbColumn');
 // Prints "db_column"
 ```
+
+## Testing
+Tests can be run using the Composer-managed version of PHPUnit:
+```shell
+composer install
+vendor/bin/phpunit
+```
+All pull requests must be submitted with passing unit tests.
