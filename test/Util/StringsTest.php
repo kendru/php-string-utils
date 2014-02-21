@@ -32,7 +32,8 @@ class StringsTest extends \PHPUnit_Framework_TestCase
 		return [
 			['Two Words', 'twoWords'],
 			['under_scores', 'underScores'],
-			['hyphenated-words', 'hyphenatedWords']
+			['hyphenated-words', 'hyphenatedWords'],
+			['with, punctuation!!?', 'withPunctuation']
 		];
 	}
 
@@ -41,7 +42,8 @@ class StringsTest extends \PHPUnit_Framework_TestCase
 		return [
 			['Two Words', 'two_words'],
 			['camelCase', 'camel_case'],
-			['hyphenated-words', 'hyphenated_words']
+			['hyphenated-words', 'hyphenated_words'],
+			['with, punctuation!!?', 'with_punctuation']
 		];
 	}
 
