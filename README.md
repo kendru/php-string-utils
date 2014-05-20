@@ -48,7 +48,7 @@ echo Strings::underscore('dbColumn');
 Truncates a string to a given length, with an optional elipsis string and
 optionally breaking on word boundaries only.
 ```php
-echo Strings::truncate('this string is too long', 13, '...', true);
+echo Strings::truncate('this string is too long', 17, '...', true);
 // Prints "this string is..."
 ```
 
