@@ -44,6 +44,14 @@ echo Strings::underscore('dbColumn');
 // Prints "db_column"
 ```
 
+#### Truncate
+Truncates a string to a given length, with an optional elipsis string and
+optionally breaking on word boundaries only.
+```php
+echo Strings::truncate('this string is too long', 13, '...', true);
+// Prints "this string is..."
+```
+
 ## Testing
 Tests can be run using the Composer-managed version of PHPUnit:
 ```shell
